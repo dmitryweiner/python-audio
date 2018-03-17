@@ -5,7 +5,6 @@ import time
 p = pyaudio.PyAudio()
 
 BITRATE = 16000     #number of frames per second/frameset.      
-BYTES_IN_FRAME = 1024
 
 #generating wawes
 def sines(bank, t):
@@ -41,8 +40,9 @@ generator = createGenerator()
 
 
 def callback(in_data, frame_count, time_info, status):
+    print time_info
     out = ''
-    for i in range(BYTES_IN_FRAME):
+    for i in range(frame_count): #BYTES IN FRAME = 1024
         out += chr(int(generator.next()*127+128))
     return (out, pyaudio.paContinue)
  
