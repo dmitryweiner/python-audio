@@ -1,7 +1,6 @@
 # coding=utf-8
 import math
 import pyaudio     #sudo apt-get install python-pyaudio
-import numpy as np
 import time
 p = pyaudio.PyAudio()
 
